@@ -1,20 +1,26 @@
 import { Hono } from "@hono/hono";
-// import { serveStatic } from "https://deno.land/x/hono@v3.7.0/middleware.ts";
+import { registerRoutes } from "./routes/routes.ts";
+import { requestLogger, errorLogger } from "./middlewares/logger.ts";
+import { corsMiddleware } from "./middlewares/validation.ts";
+import { logInfo } from "./utils/logger.ts";
 
 const app = new Hono();
 
-// Serve static files from the public directory
-// app.use("/staic/*", serveStatic({ root: "./public" }));
+// global middleware
+app.use("*", corsMiddleware);
+app.use("*", requestLogger);
+app.use("*", errorLogger);
 
-app.get("/", async (c) => {
-  const html = await Deno.readTextFile("./public/index.html");
-  return c.html(html);
-});
+// register all routes to the app
+registerRoutes(app);
 
-app.get("/", (c) => c.render("index.html"));
+logInfo("Application started with middleware + routes");
 
-app.get("/json", (c) => c.json({ message: "Hello from Hono!" }));
+// serve static files from the public directory ~
+// app.use("/static/*", serveStatic({ root: "./public" }));
 
-app.use("*", async (c) =>  await c.json({ message: "404 Not Found" }, 404));
+// app.use("*", async (c) => {
+//   return await c.json({ message: "404 Not Found" }, 404);
+// });
 
 export default app;
