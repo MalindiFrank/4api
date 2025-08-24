@@ -3,6 +3,7 @@
 README.md
 Dockerfile
 .dockerignore
+deno.lock
 node_modules
 *.log
 .DS_Store

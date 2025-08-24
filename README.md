@@ -21,6 +21,30 @@ It supports retrieving all items, random items, items by ID, and multiple random
 
 ---
 
+### Docker
+1. Build the Docker image:
+   ```bash
+   docker build -t 4-api-server .
+   ```
+   OR 
+   ```bash
+   docker build --no-cache -t 4-api-server .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 4040:4040 --rm --name 4-api 4-api-server
+   ```
+
+3. Visit [http://localhost:4040/](http://localhost:4040/) to access the API.
+
+---
+
+The **4-API Server** provides simple endpoints for fetching **words**, **quotes**, and **colors**.  
+It supports retrieving all items, random items, items by ID, and multiple random items.
+
+---
+
 ## Endpoints
 
 **Available Methods** 
