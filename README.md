@@ -1,3 +1,29 @@
+## **4-API Server**   
+
+Visit [- fourapi -](https://fourapi.onrender.com) to view the API documentation.     
+
+A light REST API built with Deno & Hono that serves curated collections of **words**, **quotes**, and **colors**. For developers building creative apps, learning projects, or needing quick access to inspiring content, prototypes, or adding some personality to your next project!
+
+ **Features:**
+-  Simple, intuitive endpoints (`/words`, `/quotes`, `/colors`)
+-  Random item generation for dynamic content
+-  Bulk fetching with custom counts
+-  Docker-ready for instant deployment
+-  TypeScript + Deno for modern development
+-  Interactive API documentation at root
+
+**Try it now:**
+```bash
+# Get a random inspirational quote
+curl https://your-api.com/quotes/random
+
+# Fetch 2 random color palettes
+curl https://your-api.com/colors/random/2
+```
+
+**Quick Start:** `deno task dev` or `docker run -p 4040:4040 --rm 4-api-server`
+
+----------------------
 
 # 4-API Server
 
