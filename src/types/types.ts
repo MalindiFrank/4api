@@ -6,13 +6,13 @@ export type Word = {
   definition: string;
 }
 
-export type Phrase = {
+export type Quote = {
   id: number;
   qoute: string;
   author: string;
 }
 
-export type Colors = {
+export type Color = {
   id: number;
   bg: string;
   color: string;

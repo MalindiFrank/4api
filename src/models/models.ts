@@ -1,4 +1,3 @@
-
 interface Word {
   id: number;
   name: string;
@@ -6,16 +5,16 @@ interface Word {
   definition: string;
 }
 
-interface Phrase {
+interface Quote {
   id: number;
-  qoute: string;
+  quote: string;
   author: string;
 }
 
-interface Colors {
+interface Color {
   id: number;
   bg: string;
   color: string;
 }
 
-export type { Word, Phrase, Colors };
+export type { Word, Quote, Color };
