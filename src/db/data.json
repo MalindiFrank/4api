@@ -1,0 +1,65 @@
+{
+  "phrases": [
+    {
+      "id": 1,
+      "quote": "Dreaming, after all, is a form of planning",
+      "author": "Gloria Steinem"
+    },
+    {
+      "id": 2,
+      "quote": "Dreaming, after all, is a form of planning",
+      "author": "two"
+    },
+    {
+      "id": 3,
+      "name": "post method",
+      "figure": "n.",
+      "definition": "if you're reading this, then it works!"
+    }
+  ],
+  "words": [
+    {
+      "id": 1,
+      "name": "phosphenes",
+      "figure": "n.",
+      "definition": "the colors or 'stars' you see when you rub your eyes"
+    },
+    {
+      "id": 2,
+      "name": "phosphenes",
+      "figure": "n.",
+      "definition": "two"
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "bg": "#f4f0ea",
+      "color": "#544b43"
+    },
+    {
+      "id": 2,
+      "bg": "#f4f0ea",
+      "color": "#two544b43"
+    }
+  ],
+  "quote": [
+    {
+      "id": 1,
+      "quote": "Dreaming, after all, is a form of planning",
+      "author": "Gloria Steinem"
+    },
+    {
+      "id": 3,
+      "name": "post method updated",
+      "figure": "updated",
+      "definition": "it works! X2"
+    },
+    {
+      "id": 3,
+      "name": "post method updated",
+      "figure": "updated",
+      "definition": "it works! X2"
+    }
+  ]
+}

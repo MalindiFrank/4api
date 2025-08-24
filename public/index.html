@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> -- 4 API Documentation --</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    b {
+      color: #3498db;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #34495e;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>4-API Server</h1>
+  <p>This 4-API allows you to:</p>
+  <ul>
+    <li>
+      <b>/words</b> - Manage fetching words (id, word, definition, figure)
+    </li>
+    <li><b>/phrases</b> - Manage fetching qoutes (id, author, quote)</li>
+    <li><b>/colors</b> - Manage fetching color (id, bg, color)</li>
+  </ul>
+
+  <h2>Available Methods:</h2>
+  <ul>
+    <li>GET - Fetch all items</li>
+    <li>GET - Fetch a random item</li>
+    <li>GET - Fetch an item by id(by ID)</li>
+    <li>Get - Fetch a certain number of random items</li>
+  </ul>
+
+  <h2>Sample JSON 4Words:</h2>
+  <pre>
+{
+  "id": 1,
+  "name": "phosphenes",
+  "figure": "n.",
+  "definition": "the colors or 'stars' you see when you rub your eyes"
+}
+  </pre>
+
+  <h2>Sample JSON 4Phrases:</h2>
+  <pre>
+{
+  "id": 1,
+  "quote": "Dreaming, after all, is a form of planning",
+  "author": "Gloria Steinem"
+}
+  </pre>
+
+  <h2>Sample JSON 4Colors:</h2>
+  <pre>
+{
+  "id": 1,
+  "bg": "#f4f0ea",
+  "color": "#544b43" 
+}
+  </pre>
+</body>
+
+</html>
