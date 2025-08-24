@@ -1,6 +1,6 @@
 # src/ Folder Structure Guide
 
-This README explains the purpose of each folder inside `src/` for your Deno + Oak REST API server, with examples for typical contents.
+This README explains the purpose of each folder inside `src/` with examples for typical contents.
 
 ---
 
@@ -11,8 +11,8 @@ This README explains the purpose of each folder inside `src/` for your Deno + Oa
 
 ```ts
 // config/config.ts
-export const APP_PORT = Deno.env.get('PORT') || 8000;
-export const DB_URI = Deno.env.get('DB_URI') || '';
+export const APP_PORT = Deno.env.get('PORT') || 4040;
+export const DB_PATH = './src/db/';
 ```
 
 ---
@@ -20,29 +20,31 @@ export const DB_URI = Deno.env.get('DB_URI') || '';
 ## controller/
 **Purpose:** Contains route handler functions (controllers) for each API endpoint.
 **Examples:**
-- `userController.ts` — Handles user-related requests.
+- `controller.ts` — Handles collection requests (words, quotes, colors).
 
 ```ts
-// controller/userController.ts
-import { Context } from "oak";
-export const getUsers = (ctx: Context) => {
-  ctx.response.body = [{ id: 1, name: "Alice" }];
-};
+// controller/controller.ts
+import { Context } from "@hono/hono";
+export async function getCollection(c: Context): Promise<Response> {
+  const collection = c.req.param('collection');
+  // Handle collection logic
+}
 ```
 
 ---
 
 ## middlewares/
-**Purpose:** Custom Oak middlewares for request/response processing.
+**Purpose:** Custom Hono middlewares for request/response processing.
 **Examples:**
-- `logger.ts` — Logs incoming requests.
+- `validation.ts` — Validates collection parameters and handles CORS.
+- `logger.ts` — Logs incoming requests and errors.
 
 ```ts
-// middlewares/logger.ts
-import { Middleware } from "oak";
-export const logger: Middleware = async (ctx, next) => {
-  console.log(`${ctx.request.method} ${ctx.request.url}`);
-  await next();
+// middlewares/validation.ts
+import { Context, Next } from "@hono/hono";
+export const validateCollection = async (c: Context, next: Next) => {
+  const validCollections = ["colors", "words", "quotes"];
+  // Validation logic
 };
 ```
 
@@ -51,13 +53,15 @@ export const logger: Middleware = async (ctx, next) => {
 ## models/
 **Purpose:** Data models, interfaces, or schemas for your app.
 **Examples:**
-- `user.ts` — Defines the User interface.
+- `models.ts` — Defines Word, Quote, and Color interfaces.
 
 ```ts
-// models/user.ts
-export interface User {
+// models/models.ts
+export interface Word {
   id: number;
   name: string;
+  figure: string;
+  definition: string;
 }
 ```
 
@@ -66,28 +70,29 @@ export interface User {
 ## routes/
 **Purpose:** Route definitions, mapping paths to controllers.
 **Examples:**
-- `userRoutes.ts` — Defines user-related routes.
+- `routes.ts` — Defines collection routes for words, quotes, and colors.
 
 ```ts
-// routes/userRoutes.ts
-import { Router } from "oak";
-import { getUsers } from "../controller/userController.ts";
-const router = new Router();
-router.get("/users", getUsers);
-export default router;
+// routes/routes.ts
+import { Hono } from "@hono/hono";
+export function registerRoutes(app: Hono) {
+  app.get("/:collection", getCollection);
+  app.get("/:collection/random", getRandomCollectionItem);
+}
 ```
 
 ---
 
 ## services/
-**Purpose:** Business logic, reusable service functions (e.g., database access).
+**Purpose:** Business logic, reusable service functions (e.g., data access).
 **Examples:**
-- `userService.ts` — Handles user data operations.
+- `service.ts` — Handles data operations for collections.
 
 ```ts
-// services/userService.ts
-import { User } from "../models/user.ts";
-export const findAllUsers = (): User[] => [{ id: 1, name: "Alice" }];
+// services/service.ts
+export async function getCollectionArray(collection: string) {
+  // Business logic for fetching collection data
+}
 ```
 
 ---
@@ -95,25 +100,34 @@ export const findAllUsers = (): User[] => [{ id: 1, name: "Alice" }];
 ## utils/
 **Purpose:** Utility/helper functions used across the app.
 **Examples:**
-- `hash.ts` — Hashes passwords.
+- `helper.ts` — File reading and data parsing utilities.
+- `logger.ts` — Logging utilities for the application.
 
 ```ts
-// utils/hash.ts
-export function hashPassword(password: string): string {
-  // Example hash logic
-  return btoa(password);
+// utils/helper.ts
+export async function readJsonFile(filename: string): Promise<JSONObject> {
+  return JSON.parse(await Deno.readTextFile(filename));
 }
 ```
 
 ---
 
+## db/
+**Purpose:** JSON data files for the API collections.
+**Examples:**
+- `words.json` — Contains word definitions and grammatical figures.
+- `quotes.json` — Contains inspirational quotes with authors.
+- `colors.json` — Contains color pairs (background and text colors).
+
+---
+
 ## Summary
 - **config/**: App settings and environment config
-- **controller/**: Route handler functions
-- **middlewares/**: Custom Oak middlewares
-- **models/**: Data models/interfaces
-- **routes/**: Route definitions
-- **services/**: Business logic/services
-- **utils/**: Helper functions
+- **controller/**: Route handler functions for collections
+- **middlewares/**: Custom Hono middlewares (validation, CORS, logging)
+- **models/**: Data models/interfaces (Word, Quote, Color)
+- **routes/**: Route definitions for the 4-API endpoints
+- **services/**: Business logic for data operations
+- **utils/**: Helper functions (file reading, logging)
+- **db/**: JSON data storage files
 
-This separation keeps your code organized, maintainable, and scalable. Each folder has a clear responsibility, and you can easily add new features by following this structure.
