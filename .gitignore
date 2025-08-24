@@ -1,0 +1,17 @@
+# Docker image layers and artifacts
+sha256:*
+*.tar
+.docker/
+docker-volumes/
+
+# OS files
+.DS_Store
+**/.DS_Store
+*~
+.*.swp
+
+# Build artifacts
+node_modules/
+coverage/
+tmp/
+*.log
