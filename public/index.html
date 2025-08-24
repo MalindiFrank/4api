@@ -49,6 +49,26 @@
       margin-top: 20px;
       color: #2c3e50;
     }
+
+    h4 {
+      margin-top: 15px;
+      color: #34495e;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -56,9 +76,7 @@
   <h1>4-API Server</h1>
   <p>This 4-API allows you to:</p>
   <ul>
-    <li>
-      <b>/words</b> - Manage fetching words (id, word, definition, figure)
-    </li>
+    <li><b>/words</b> - Manage fetching words (id, word, definition, figure)</li>
     <li><b>/quotes</b> - Manage fetching quotes (id, author, quote)</li>
     <li><b>/colors</b> - Manage fetching color (id, bg, color)</li>
   </ul>
@@ -69,6 +87,30 @@
     <li>GET - Fetch a random item</li>
     <li>GET - Fetch an item by ID</li>
     <li>GET - Fetch a certain number of random items</li>
+  </ul>
+
+  <h2>Endpoints</h2>
+  <p><b>Available Methods</b></p>
+  <p>Routes for each collection (<code>quotes</code>, <code>colors</code>, <code>words</code>):</p>
+  <ul>
+    <li><code>GET  /&lt;collection&gt;</code> → all items + count</li>
+    <li><code>GET  /&lt;collection&gt;/:id</code> → one item by ID</li>
+    <li><code>GET  /&lt;collection&gt;/random</code> → one random item</li>
+    <li><code>GET  /&lt;collection&gt;/random/:n</code> → n random items + count</li>
+  </ul>
+
+  <hr />
+
+  <h3>1. Words</h3>
+  <p><b>Base URL</b>: <code>/words</code></p>
+  <p><b>Description</b>: Fetch words along with their definition and grammatical figure.</p>
+
+  <h4>Available Methods</h4>
+  <ul>
+    <li><code>GET /words</code> → Fetch all words</li>
+    <li><code>GET /words/2</code> → Fetch the word where id = 2</li>
+    <li><code>GET /words/random</code> → Fetch a random word</li>
+    <li><code>GET /words/random/5</code> → Fetch 5 random words</li>
   </ul>
 
   <h2>Sample JSON 4Words:</h2>
@@ -106,7 +148,7 @@
 import requests
 import json
 
-url = "https://fourapi.onrender.com/quotes/random"
+url = "<a href="https://fourapi.onrender.com/quotes/random" target="_blank">https://fourapi.onrender.com/quotes/random</a>"
 
 response = requests.get(url)
 if response.status_code == 200:
@@ -118,7 +160,7 @@ else:
 
   <h3>JavaScript Example (Node.js / Browser)</h3>
   <pre>
-fetch("https://fourapi.onrender.com/words/random")
+fetch("<a href="https://fourapi.onrender.com/words/random" target="_blank">https://fourapi.onrender.com/words/random</a>")
   .then(response => response.json())
   .then(data => {
     console.log("Fetched word:");
@@ -145,7 +187,7 @@ import kong.unirest.Unirest;
 
 public class FourApiExample {
     public static void main(String[] args) {
-        HttpResponse&lt;JsonNode&gt; response = Unirest.get("https://fourapi.onrender.com/colors/random")
+        HttpResponse&lt;JsonNode&gt; response = Unirest.get("<a href="https://fourapi.onrender.com/colors/random" target="_blank">https://fourapi.onrender.com/colors/random</a>")
                 .asJson();
 
         System.out.println("Response:");
