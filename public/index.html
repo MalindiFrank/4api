@@ -44,6 +44,11 @@
       margin-top: 30px;
       color: #34495e;
     }
+
+    h3 {
+      margin-top: 20px;
+      color: #2c3e50;
+    }
   </style>
 </head>
 
@@ -93,6 +98,61 @@
   "color": "#544b43" 
 }
   </pre>
-</body>
 
+  <h2>How to Use This API:</h2>
+
+  <h3>Python Example</h3>
+  <pre>
+import requests
+import json
+
+url = "https://fourapi.onrender.com/quotes/random"
+
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    print(json.dumps(data, indent=2))
+else:
+    print("Error:", response.status_code)
+  </pre>
+
+  <h3>JavaScript Example (Node.js / Browser)</h3>
+  <pre>
+fetch("https://fourapi.onrender.com/words/random")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Fetched word:");
+    console.log(JSON.stringify(data, null, 2));
+  })
+  .catch(error => console.error("Error:", error));
+  </pre>
+
+  <h3>Java Example (with Maven + Unirest)</h3>
+  <p>Add this dependency in your <code>pom.xml</code>:</p>
+  <pre>
+&lt;dependency&gt;
+  &lt;groupId&gt;com.konghq&lt;/groupId&gt;
+  &lt;artifactId&gt;unirest-java&lt;/artifactId&gt;
+  &lt;version&gt;3.14.5&lt;/version&gt;
+&lt;/dependency&gt;
+  </pre>
+
+  <p>Example Java code:</p>
+  <pre>
+import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
+import kong.unirest.Unirest;
+
+public class FourApiExample {
+    public static void main(String[] args) {
+        HttpResponse&lt;JsonNode&gt; response = Unirest.get("https://fourapi.onrender.com/colors/random")
+                .asJson();
+
+        System.out.println("Response:");
+        System.out.println(response.getBody().toPrettyString());
+    }
+}
+  </pre>
+
+</body>
 </html>
