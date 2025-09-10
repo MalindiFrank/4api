@@ -8,9 +8,267 @@
     },
     {
       "id": 2,
-      "name": "phosphenes",
+      "name": "sonder",
       "figure": "n.",
-      "definition": "two"
+      "definition": "the realization that each passerby has a life as vivid and complex as your own"
+    },
+    {
+      "id": 3,
+      "name": "petrichor",
+      "figure": "n.",
+      "definition": "the pleasant smell of earth after rain"
+    },
+    {
+      "id": 4,
+      "name": "wanderlust",
+      "figure": "n.",
+      "definition": "a strong desire to travel and explore the world"
+    },
+    {
+      "id": 5,
+      "name": "serendipity",
+      "figure": "n.",
+      "definition": "the occurrence of happy or beneficial events by chance"
+    },
+    {
+      "id": 6,
+      "name": "melancholy",
+      "figure": "n.",
+      "definition": "a feeling of pensive sadness, typically with no obvious cause"
+    },
+    {
+      "id": 7,
+      "name": "nostalgia",
+      "figure": "n.",
+      "definition": "a sentimental longing for the past"
+    },
+    {
+      "id": 8,
+      "name": "euphoria",
+      "figure": "n.",
+      "definition": "a feeling of intense excitement and happiness"
+    },
+    {
+      "id": 9,
+      "name": "reverie",
+      "figure": "n.",
+      "definition": "a state of being pleasantly lost in one's thoughts"
+    },
+    {
+      "id": 10,
+      "name": "ephemeral",
+      "figure": "adj.",
+      "definition": "lasting for a very short time; fleeting"
+    },
+    {
+      "id": 11,
+      "name": "luminous",
+      "figure": "adj.",
+      "definition": "full of or shedding light; bright or shining"
+    },
+    {
+      "id": 12,
+      "name": "ethereal",
+      "figure": "adj.",
+      "definition": "extremely delicate and light in a way that seems too perfect for this world"
+    },
+    {
+      "id": 13,
+      "name": "catharsis",
+      "figure": "n.",
+      "definition": "the process of releasing strong or repressed emotions"
+    },
+    {
+      "id": 14,
+      "name": "resilience",
+      "figure": "n.",
+      "definition": "the capacity to recover quickly from difficulties; toughness"
+    },
+    {
+      "id": 15,
+      "name": "empathy",
+      "figure": "n.",
+      "definition": "the ability to understand and share the feelings of another"
+    },
+    {
+      "id": 16,
+      "name": "whimsy",
+      "figure": "n.",
+      "definition": "playfully quaint or fanciful behavior or humor"
+    },
+    {
+      "id": 17,
+      "name": "solitude",
+      "figure": "n.",
+      "definition": "the state of being alone without being lonely"
+    },
+    {
+      "id": 18,
+      "name": "wonder",
+      "figure": "n.",
+      "definition": "a feeling of amazement and admiration, caused by something beautiful"
+    },
+    {
+      "id": 19,
+      "name": "grace",
+      "figure": "n.",
+      "definition": "simple elegance or refinement of movement"
+    },
+    {
+      "id": 20,
+      "name": "tranquility",
+      "figure": "n.",
+      "definition": "the quality or state of being calm and peaceful"
+    },
+    {
+      "id": 21,
+      "name": "passion",
+      "figure": "n.",
+      "definition": "strong and barely controllable emotion"
+    },
+    {
+      "id": 22,
+      "name": "vulnerability",
+      "figure": "n.",
+      "definition": "the quality of being easily hurt or attacked; openness"
+    },
+    {
+      "id": 23,
+      "name": "authenticity",
+      "figure": "n.",
+      "definition": "the quality of being genuine or real"
+    },
+    {
+      "id": 24,
+      "name": "intimacy",
+      "figure": "n.",
+      "definition": "close familiarity or friendship; closeness"
+    },
+    {
+      "id": 25,
+      "name": "bliss",
+      "figure": "n.",
+      "definition": "perfect happiness; great joy"
+    },
+    {
+      "id": 26,
+      "name": "yearning",
+      "figure": "n.",
+      "definition": "a feeling of intense longing for something"
+    },
+    {
+      "id": 27,
+      "name": "revelry",
+      "figure": "n.",
+      "definition": "lively and noisy festivities, especially when these involve drinking"
+    },
+    {
+      "id": 28,
+      "name": "camaraderie",
+      "figure": "n.",
+      "definition": "mutual trust and friendship among people who spend a lot of time together"
+    },
+    {
+      "id": 29,
+      "name": "whisper",
+      "figure": "n.",
+      "definition": "a soft or confidential tone of voice; a rumor"
+    },
+    {
+      "id": 30,
+      "name": "embrace",
+      "figure": "n.",
+      "definition": "an act of holding someone closely in one's arms"
+    },
+    {
+      "id": 31,
+      "name": "laughter",
+      "figure": "n.",
+      "definition": "the action or sound of laughing"
+    },
+    {
+      "id": 32,
+      "name": "sparkle",
+      "figure": "n.",
+      "definition": "a glittering flash of light; liveliness and vivacity"
+    },
+    {
+      "id": 33,
+      "name": "gentleness",
+      "figure": "n.",
+      "definition": "the quality of being kind, tender, or mild-mannered"
+    },
+    {
+      "id": 34,
+      "name": "curiosity",
+      "figure": "n.",
+      "definition": "a strong desire to know or learn something"
+    },
+    {
+      "id": 35,
+      "name": "gratitude",
+      "figure": "n.",
+      "definition": "the quality of being thankful; readiness to show appreciation"
+    },
+    {
+      "id": 36,
+      "name": "warmth",
+      "figure": "n.",
+      "definition": "the quality, state, or sensation of being warm; friendliness"
+    },
+    {
+      "id": 37,
+      "name": "freedom",
+      "figure": "n.",
+      "definition": "the power or right to act, speak, or think as one wants"
+    },
+    {
+      "id": 38,
+      "name": "harmony",
+      "figure": "n.",
+      "definition": "the combination of different musical notes sounded together; agreement"
+    },
+    {
+      "id": 39,
+      "name": "adventure",
+      "figure": "n.",
+      "definition": "an unusual and exciting or daring experience"
+    },
+    {
+      "id": 40,
+      "name": "tenderness",
+      "figure": "n.",
+      "definition": "gentleness and kindness; softness"
+    },
+    {
+      "id": 41,
+      "name": "radiance",
+      "figure": "n.",
+      "definition": "light or heat as emitted or reflected by something; great happiness"
+    },
+    {
+      "id": 42,
+      "name": "playfulness",
+      "figure": "n.",
+      "definition": "the quality of being light-hearted or full of fun"
+    },
+    {
+      "id": 43,
+      "name": "belonging",
+      "figure": "n.",
+      "definition": "an affinity for a place or situation; fitting in"
+    },
+    {
+      "id": 44,
+      "name": "magic",
+      "figure": "n.",
+      "definition": "the power of apparently influencing events by using mysterious forces"
+    },
+    {
+      "id": 45,
+      "name": "wholeness",
+      "figure": "n.",
+      "definition": "the state of forming a complete and harmonious whole; integrity"
     }
   ]
 }
