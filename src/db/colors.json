@@ -7,8 +7,63 @@
     },
     {
       "id": 2,
-      "bg": "#f4f0ea",
-      "color": "#two544b43"
+      "bg": "#aa5a2e",
+      "color": "#f5f3f3"
+    },
+    {
+      "id": 3,
+      "bg": "#dfc7a9",
+      "color": "#544b43"
+    },
+    {
+      "id": 4,
+      "bg": "#533320",
+      "color": "#d3cfcb"
+    },
+    {
+      "id": 5,
+      "bg": "#373737",
+      "color": "#d3cfcb"
+    },
+    {
+      "id": 6,
+      "bg": "#b5a886",
+      "color": "#544b43"
+    },
+    {
+      "id": 7,
+      "bg": "#d418d4",
+      "color": "#ffffff"
+    },
+    {
+      "id": 8,
+      "bg": "#81ad6c",
+      "color": "#ffffff"
+    },
+    {
+      "id": 9,
+      "bg": "#6ca0ad",
+      "color": "#ffffff"
+    },
+    {
+      "id": 10,
+      "bg": "#c764a6",
+      "color": "#ffffff"
+    },
+    {
+      "id": 11,
+      "bg": "#c76464",
+      "color": "#413f3f"
+    },
+    {
+      "id": 12,
+      "bg": "#c76471",
+      "color": "#ffffff"
+    },
+    {
+      "id": 13,
+      "bg": "#cab058",
+      "color": "#252525"
     }
   ]
 }
