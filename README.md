@@ -15,10 +15,10 @@ A light REST API built with Deno & Hono that serves curated collections of **wor
 **Try it now:**
 ```bash
 # Get a random inspirational quote
-curl https://your-api.com/quotes/random
+curl https://fourapi.onrender.com/quotes/random
 
 # Fetch 2 random color palettes
-curl https://your-api.com/colors/random/2
+curl https://fourapi.onrender.com/colors/random/2
 ```
 
 **Quick Start:** `deno task dev` or `docker run -p 4040:4040 --rm 4-api-server`
