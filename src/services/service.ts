@@ -9,14 +9,13 @@ export async function getCollectionArray<T extends Word | Quote | Color>(
     logService(`Loading collection: ${collection}`);
 
     switch (collection) {
-      case "words" :
-      case "quotes":
+      case "words":
+      case "quotes": 
       case "colors": {
         const collectable = await getCollection(collection) as T[];
-        logService(`Loaded ${collection.length} ${collection}`);
+        logService(`Loaded ${collectable.length} ${collection}`);
         return collectable;
       }
-
       default: {
         logService(`Unknown collection requested: ${collection}`);
         return [];

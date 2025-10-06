@@ -9,5 +9,5 @@ export async function readJsonFile(filename: string): Promise<JSONObject> {
 
 export async function getCollection(collection: string): Promise<Word[] | Quote[] | Color[]> {
   const json = await readJsonFile(`./src/db/${collection}.json`);
-  return (json["words"] as (Word[] | Quote[] | Color[]));
+  return (json[collection] as (Word[] | Quote[] | Color[]));
 }
