@@ -1,5 +1,5 @@
 import { Color, Quote, Word } from "../models/models.ts";
-import { getWords, getQuotes, getColors } from "../utils/helper.ts";
+import { getCollection } from "../utils/helper.ts";
 import { logService, logError } from "../utils/logger.ts";
 
 export async function getCollectionArray<T extends Word | Quote | Color>(
@@ -9,21 +9,14 @@ export async function getCollectionArray<T extends Word | Quote | Color>(
     logService(`Loading collection: ${collection}`);
 
     switch (collection) {
-      case "words": {
-        const words = await getWords() as T[];
-        logService(`Loaded ${words.length} words`);
-        return words;
-      }
-      case "quotes": {
-        const quotes = await getQuotes() as T[];
-        logService(`Loaded ${quotes.length} quotes`);
-        return quotes;
-      }
+      case "words" :
+      case "quotes":
       case "colors": {
-        const colors = await getColors() as T[];
-        logService(`Loaded ${colors.length} colors`);
-        return colors;
+        const collectable = await getCollection(collection) as T[];
+        logService(`Loaded ${collection.length} ${collection}`);
+        return collectable;
       }
+
       default: {
         logService(`Unknown collection requested: ${collection}`);
         return [];

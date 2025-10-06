@@ -7,17 +7,7 @@ export async function readJsonFile(filename: string): Promise<JSONObject> {
   return json;
 }
 
-export async function getWords(): Promise<Word[]> {
-  const json = await readJsonFile("./src/db/words.json");
-  return (json["words"] as Word[]);
-}
-
-export async function getQuotes(): Promise<Quote[]> {
-  const json = await readJsonFile("./src/db/quotes.json");
-  return (json["quotes"] as Quote[]);
-}
-
-export async function getColors(): Promise<Color[]> {
-  const json = await readJsonFile("./src/db/colors.json");
-  return (json["colors"] as Color[]);
+export async function getCollection(collection: string): Promise<Word[] | Quote[] | Color[]> {
+  const json = await readJsonFile(`./src/db/${collection}.json`);
+  return (json["words"] as (Word[] | Quote[] | Color[]));
 }
