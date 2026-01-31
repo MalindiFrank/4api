@@ -1,120 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-API Documentation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4-API Documentation</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
-    }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
 
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
+      ul {
+        padding-left: 20px;
+      }
 
-    ul {
-      padding-left: 20px;
-    }
+      li {
+        margin-bottom: 8px;
+      }
 
-    li {
-      margin-bottom: 8px;
-    }
+      pre {
+        background-color: #eee;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
 
-    pre {
-      background-color: #eee;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
+      b {
+        color: #3498db;
+      }
 
-    b {
-      color: #3498db;
-    }
+      h2 {
+        margin-top: 30px;
+        color: #34495e;
+      }
 
-    h2 {
-      margin-top: 30px;
-      color: #34495e;
-    }
+      h3 {
+        margin-top: 20px;
+        color: #2c3e50;
+      }
 
-    h3 {
-      margin-top: 20px;
-      color: #2c3e50;
-    }
+      h4 {
+        margin-top: 15px;
+        color: #34495e;
+      }
 
-    h4 {
-      margin-top: 15px;
-      color: #34495e;
-    }
+      code {
+        background-color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
 
-    code {
-      background-color: #eee;
-      padding: 2px 5px;
-      border-radius: 3px;
-    }
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
 
-    a {
-      color: #3498db;
-      text-decoration: none;
-    }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
+  <body>
+    <h1>4-API Server</h1>
+    <p>This 4-API allows you to:</p>
+    <ul>
+      <li>
+        <b>/words</b> - Manage fetching words (id, word, definition, figure)
+      </li>
+      <li><b>/quotes</b> - Manage fetching quotes (id, author, quote)</li>
+      <li><b>/colors</b> - Manage fetching color (id, bg, color)</li>
+    </ul>
 
-<body>
-  <h1>4-API Server</h1>
-  <p>This 4-API allows you to:</p>
-  <ul>
-    <li><b>/words</b> - Manage fetching words (id, word, definition, figure)</li>
-    <li><b>/quotes</b> - Manage fetching quotes (id, author, quote)</li>
-    <li><b>/colors</b> - Manage fetching color (id, bg, color)</li>
-  </ul>
+    <h2>Available Methods:</h2>
+    <ul>
+      <li>GET - Fetch all items</li>
+      <li>GET - Fetch a random item</li>
+      <li>GET - Fetch an item by ID</li>
+      <li>GET - Fetch a certain number of random items</li>
+    </ul>
 
-  <h2>Available Methods:</h2>
-  <ul>
-    <li>GET - Fetch all items</li>
-    <li>GET - Fetch a random item</li>
-    <li>GET - Fetch an item by ID</li>
-    <li>GET - Fetch a certain number of random items</li>
-  </ul>
+    <h2>Endpoints</h2>
+    <p><b>Available Methods</b></p>
+    <p>
+      Routes for each collection (<code>quotes</code>, <code>colors</code>,
+      <code>words</code>):
+    </p>
+    <ul>
+      <li><code>GET /&lt;collection&gt;</code> → all items + count</li>
+      <li><code>GET /&lt;collection&gt;/:id</code> → one item by ID</li>
+      <li><code>GET /&lt;collection&gt;/random</code> → one random item</li>
+      <li>
+        <code>GET /&lt;collection&gt;/random/:n</code> → n random items + count
+      </li>
+    </ul>
 
-  <h2>Endpoints</h2>
-  <p><b>Available Methods</b></p>
-  <p>Routes for each collection (<code>quotes</code>, <code>colors</code>, <code>words</code>):</p>
-  <ul>
-    <li><code>GET  /&lt;collection&gt;</code> → all items + count</li>
-    <li><code>GET  /&lt;collection&gt;/:id</code> → one item by ID</li>
-    <li><code>GET  /&lt;collection&gt;/random</code> → one random item</li>
-    <li><code>GET  /&lt;collection&gt;/random/:n</code> → n random items + count</li>
-  </ul>
+    <hr />
 
-  <hr />
+    <h3>1. Words</h3>
+    <p><b>Base URL</b>: <code>/words</code></p>
+    <p>
+      <b>Description</b>: Fetch words along with their definition and
+      grammatical figure.
+    </p>
 
-  <h3>1. Words</h3>
-  <p><b>Base URL</b>: <code>/words</code></p>
-  <p><b>Description</b>: Fetch words along with their definition and grammatical figure.</p>
+    <h4>Available Methods</h4>
+    <ul>
+      <li><code>GET /words</code> → Fetch all words</li>
+      <li><code>GET /words/2</code> → Fetch the word where id = 2</li>
+      <li><code>GET /words/random</code> → Fetch a random word</li>
+      <li><code>GET /words/random/5</code> → Fetch 5 random words</li>
+    </ul>
 
-  <h4>Available Methods</h4>
-  <ul>
-    <li><code>GET /words</code> → Fetch all words</li>
-    <li><code>GET /words/2</code> → Fetch the word where id = 2</li>
-    <li><code>GET /words/random</code> → Fetch a random word</li>
-    <li><code>GET /words/random/5</code> → Fetch 5 random words</li>
-  </ul>
-
-  <h2>Sample JSON 4Words:</h2>
-  <pre>
+    <h2>Sample JSON 4Words:</h2>
+    <pre>
 {
   "id": 1,
   "word": "phosphenes",
@@ -123,8 +132,8 @@
 }
   </pre>
 
-  <h2>Sample JSON 4Quotes:</h2>
-  <pre>
+    <h2>Sample JSON 4Quotes:</h2>
+    <pre>
 {
   "id": 1,
   "quote": "Dreaming, after all, is a form of planning",
@@ -132,8 +141,8 @@
 }
   </pre>
 
-  <h2>Sample JSON 4Colors:</h2>
-  <pre>
+    <h2>Sample JSON 4Colors:</h2>
+    <pre>
 {
   "id": 1,
   "bg": "#f4f0ea",
@@ -141,10 +150,10 @@
 }
   </pre>
 
-  <h2>How to Use This API:</h2>
+    <h2>How to Use This API:</h2>
 
-  <h3>Python Example</h3>
-  <pre>
+    <h3>Python Example</h3>
+    <pre>
 import requests
 import json
 
@@ -158,8 +167,8 @@ else:
     print("Error:", response.status_code)
   </pre>
 
-  <h3>JavaScript Example (Node.js / Browser)</h3>
-  <pre>
+    <h3>JavaScript Example (Node.js / Browser)</h3>
+    <pre>
 fetch("<a href="https://fourapi.onrender.com/words/random" target="_blank">https://fourapi.onrender.com/words/random</a>")
   .then(response => response.json())
   .then(data => {
@@ -169,9 +178,9 @@ fetch("<a href="https://fourapi.onrender.com/words/random" target="_blank">https
   .catch(error => console.error("Error:", error));
   </pre>
 
-  <h3>Java Example (with Maven + Unirest)</h3>
-  <p>Add this dependency in your <code>pom.xml</code>:</p>
-  <pre>
+    <h3>Java Example (with Maven + Unirest)</h3>
+    <p>Add this dependency in your <code>pom.xml</code>:</p>
+    <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;com.konghq&lt;/groupId&gt;
   &lt;artifactId&gt;unirest-java&lt;/artifactId&gt;
@@ -179,8 +188,8 @@ fetch("<a href="https://fourapi.onrender.com/words/random" target="_blank">https
 &lt;/dependency&gt;
   </pre>
 
-  <p>Example Java code:</p>
-  <pre>
+    <p>Example Java code:</p>
+    <pre>
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
@@ -195,6 +204,5 @@ public class FourApiExample {
     }
 }
   </pre>
-
-</body>
+  </body>
 </html>

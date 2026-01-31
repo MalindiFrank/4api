@@ -5,9 +5,9 @@
 
 export enum LogLevel {
   DEBUG = "DEBUG",
-  INFO = "INFO", 
+  INFO = "INFO",
   WARN = "WARN",
-  ERROR = "ERROR"
+  ERROR = "ERROR",
 }
 
 interface LogContext {
@@ -24,14 +24,18 @@ const getTimestamp = (): string => {
 /**
  * Format log message with timestamp and level
  */
-const formatLogMessage = (level: LogLevel, message: string, context?: LogContext): string => {
+const formatLogMessage = (
+  level: LogLevel,
+  message: string,
+  context?: LogContext,
+): string => {
   const timestamp = getTimestamp();
   let logMessage = `[${timestamp}] [${level}] ${message}`;
-  
+
   if (context && Object.keys(context).length > 0) {
     logMessage += ` | Context: ${JSON.stringify(context)}`;
   }
-  
+
   return logMessage;
 };
 
@@ -61,19 +65,23 @@ export const logWarn = (message: string, context?: LogContext): void => {
 /**
  * Log error messages
  */
-export const logError = (message: string, error?: unknown, context?: LogContext): void => {
+export const logError = (
+  message: string,
+  error?: unknown,
+  context?: LogContext,
+): void => {
   const errorContext = { ...context };
-  
+
   if (error instanceof Error) {
     errorContext.error = {
       name: error.name,
       message: error.message,
-      stack: error.stack
+      stack: error.stack,
     };
   } else if (error) {
     errorContext.error = error;
   }
-  
+
   console.error(formatLogMessage(LogLevel.ERROR, message, errorContext));
 };
 

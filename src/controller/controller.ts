@@ -5,7 +5,7 @@ import {
   getRandomItems,
 } from "../services/service.ts";
 import { logController, logError } from "../utils/logger.ts";
-import { Word, Quote, Color } from "../models/models.ts";
+import { Color, Quote, Word } from "../models/models.ts";
 
 export async function getHtml(c: Context): Promise<Response> {
   const html = await Deno.readTextFile("public/index.html");
@@ -29,7 +29,7 @@ export async function getCollection(c: Context): Promise<Response> {
     logError("Error in getCollection", error, { path: c.req.path });
     return c.json(
       { status: "ERROR", message: "Failed to retrieve collection" },
-      500
+      500,
     );
   }
 }
@@ -41,14 +41,14 @@ export async function getCollectionItemById(c: Context): Promise<Response> {
     const parsedId = Number.parseInt(id);
 
     logController(
-      `Getting item by ID: ${parsedId} from collection: ${collection}`
+      `Getting item by ID: ${parsedId} from collection: ${collection}`,
     );
 
     const collectables = await getItemById(collection, parsedId);
 
     if (!collectables) {
       logController(
-        `Item not found: ID ${parsedId} in collection ${collection}`
+        `Item not found: ID ${parsedId} in collection ${collection}`,
       );
       return c.json({ status: "ERROR", message: "Item not found" }, 404);
     }
@@ -85,7 +85,7 @@ export async function getRandomCollectionItem(c: Context): Promise<Response> {
     logError("Error in getRandomCollectionItem", error, { path: c.req.path });
     return c.json(
       { status: "ERROR", message: "Failed to retrieve random item" },
-      500
+      500,
     );
   }
 }
@@ -97,12 +97,16 @@ export async function getNumberRandomItems(c: Context): Promise<Response> {
     const count = n ? Number.parseInt(n) : 1;
 
     logController(
-      `Getting ${count} random items from collection: ${collection}`
+      `Getting ${count} random items from collection: ${collection}`,
     );
 
     const collectables = await getRandomItems(collection, count);
 
-    const response: { status: string; data: (Word | Quote | Color)[]; length?: string } = {
+    const response: {
+      status: string;
+      data: (Word | Quote | Color)[];
+      length?: string;
+    } = {
       status: "OK",
       data: collectables,
     };
@@ -117,7 +121,7 @@ export async function getNumberRandomItems(c: Context): Promise<Response> {
       {
         requestedCount: count,
         actualCount: collectables.length,
-      }
+      },
     );
 
     return c.json(response);
@@ -128,7 +132,7 @@ export async function getNumberRandomItems(c: Context): Promise<Response> {
     });
     return c.json(
       { status: "ERROR", message: "Failed to retrieve random items" },
-      500
+      500,
     );
   }
 }

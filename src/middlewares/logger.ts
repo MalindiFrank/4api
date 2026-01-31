@@ -1,5 +1,5 @@
 import { Context, Next } from "@hono/hono";
-import { logRequest, logError } from "../utils/logger.ts";
+import { logError, logRequest } from "../utils/logger.ts";
 
 /**
  * Request logging middleware
@@ -32,7 +32,7 @@ export const routeLogger = (routeName: string) => {
   return async (c: Context, next: Next) => {
     logRequest(`Route accessed: ${routeName}`, {
       path: c.req.path,
-      params: c.req.param()
+      params: c.req.param(),
     });
     await next();
   };
@@ -49,13 +49,13 @@ export const errorLogger = async (c: Context, next: Next) => {
     logError("Unhandled error in request", error, {
       method: c.req.method,
       path: c.req.path,
-      userAgent: c.req.header("user-agent")
+      userAgent: c.req.header("user-agent"),
     });
 
     // Return a generic error response
     return c.json({
       status: "ERROR",
-      message: "Internal server error"
+      message: "Internal server error",
     }, 500);
   }
 };

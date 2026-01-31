@@ -4,6 +4,6 @@ if (import.meta.main) {
 }
 
 import app from "./src/app.ts";
-const PORT = 4040; 
+const PORT = 4040;
 
-Deno.serve({port: PORT}, app.fetch);
+Deno.serve({ port: PORT }, app.fetch);

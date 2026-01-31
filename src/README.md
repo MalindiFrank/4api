@@ -1,32 +1,36 @@
 # src/ Folder Structure Guide
 
-This README explains the purpose of each folder inside `src/` with examples for typical contents.
+This README explains the purpose of each folder inside `src/` with examples for
+typical contents.
 
 ---
 
 ## config/
-**Purpose:** Store configuration files and environment settings.
-**Examples:**
+
+**Purpose:** Store configuration files and environment settings. **Examples:**
+
 - `config.ts` — Loads environment variables, app settings, or database config.
 
 ```ts
 // config/config.ts
-export const APP_PORT = Deno.env.get('PORT') || 4040;
-export const DB_PATH = './src/db/';
+export const APP_PORT = Deno.env.get("PORT") || 4040;
+export const DB_PATH = "./src/db/";
 ```
 
 ---
 
 ## controller/
-**Purpose:** Contains route handler functions (controllers) for each API endpoint.
-**Examples:**
+
+**Purpose:** Contains route handler functions (controllers) for each API
+endpoint. **Examples:**
+
 - `controller.ts` — Handles collection requests (words, quotes, colors).
 
 ```ts
 // controller/controller.ts
 import { Context } from "@hono/hono";
 export async function getCollection(c: Context): Promise<Response> {
-  const collection = c.req.param('collection');
+  const collection = c.req.param("collection");
   // Handle collection logic
 }
 ```
@@ -34,8 +38,10 @@ export async function getCollection(c: Context): Promise<Response> {
 ---
 
 ## middlewares/
+
 **Purpose:** Custom Hono middlewares for request/response processing.
 **Examples:**
+
 - `validation.ts` — Validates collection parameters and handles CORS.
 - `logger.ts` — Logs incoming requests and errors.
 
@@ -51,8 +57,9 @@ export const validateCollection = async (c: Context, next: Next) => {
 ---
 
 ## models/
-**Purpose:** Data models, interfaces, or schemas for your app.
-**Examples:**
+
+**Purpose:** Data models, interfaces, or schemas for your app. **Examples:**
+
 - `models.ts` — Defines Word, Quote, and Color interfaces.
 
 ```ts
@@ -68,8 +75,9 @@ export interface Word {
 ---
 
 ## routes/
-**Purpose:** Route definitions, mapping paths to controllers.
-**Examples:**
+
+**Purpose:** Route definitions, mapping paths to controllers. **Examples:**
+
 - `routes.ts` — Defines collection routes for words, quotes, and colors.
 
 ```ts
@@ -84,8 +92,10 @@ export function registerRoutes(app: Hono) {
 ---
 
 ## services/
+
 **Purpose:** Business logic, reusable service functions (e.g., data access).
 **Examples:**
+
 - `service.ts` — Handles data operations for collections.
 
 ```ts
@@ -98,8 +108,9 @@ export async function getCollectionArray(collection: string) {
 ---
 
 ## utils/
-**Purpose:** Utility/helper functions used across the app.
-**Examples:**
+
+**Purpose:** Utility/helper functions used across the app. **Examples:**
+
 - `helper.ts` — File reading and data parsing utilities.
 - `logger.ts` — Logging utilities for the application.
 
@@ -113,8 +124,9 @@ export async function readJsonFile(filename: string): Promise<JSONObject> {
 ---
 
 ## db/
-**Purpose:** JSON data files for the API collections.
-**Examples:**
+
+**Purpose:** JSON data files for the API collections. **Examples:**
+
 - `words.json` — Contains word definitions and grammatical figures.
 - `quotes.json` — Contains inspirational quotes with authors.
 - `colors.json` — Contains color pairs (background and text colors).
@@ -122,6 +134,7 @@ export async function readJsonFile(filename: string): Promise<JSONObject> {
 ---
 
 ## Summary
+
 - **config/**: App settings and environment config
 - **controller/**: Route handler functions for collections
 - **middlewares/**: Custom Hono middlewares (validation, CORS, logging)
@@ -130,4 +143,3 @@ export async function readJsonFile(filename: string): Promise<JSONObject> {
 - **services/**: Business logic for data operations
 - **utils/**: Helper functions (file reading, logging)
 - **db/**: JSON data storage files
-

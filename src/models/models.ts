@@ -17,4 +17,4 @@ interface Color {
   color: string;
 }
 
-export type { Word, Quote, Color };
+export type { Color, Quote, Word };

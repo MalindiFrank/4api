@@ -1,6 +1,6 @@
 import { Hono } from "@hono/hono";
 import { registerRoutes } from "./routes/routes.ts";
-import { requestLogger, errorLogger } from "./middlewares/logger.ts";
+import { errorLogger, requestLogger } from "./middlewares/logger.ts";
 import { corsMiddleware } from "./middlewares/validation.ts";
 import { logInfo } from "./utils/logger.ts";
 
