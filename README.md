@@ -2,8 +2,12 @@
 
 Visit [- fourapi -](https://fourapi.onrender.com) to view the API documentation.
 
-A light REST API built with Deno & Hono that serves curated collections of `words`, `quotes`, and `colors`. For developers building creative apps, learning projects, or needing quick access to inspiring content, prototypes, or adding some personality to your next project! Simply provides endpoints for fetching `words`, `quotes`, and `color pallets`. It supports retrieving all items, random items, items by ID, and multiple random items.
-
+A light REST API built with Deno & Hono that serves curated collections of
+`words`, `quotes`, and `colors`. For developers building creative apps, learning
+projects, or needing quick access to inspiring content, prototypes, or adding
+some personality to your next project! Simply provides endpoints for fetching
+`words`, `quotes`, and `color pallets`. It supports retrieving all items, random
+items, items by ID, and multiple random items.
 
 **Quick Try - On The Terminal:**
 
@@ -22,9 +26,11 @@ git clone https://github.com/MalindiFrank/4api.git
 cd 4api
 deno task dev
 ```
+
 `deno task dev` or `docker run -p 4040:4040 --rm 4-api-server`
 
-Visit [http://localhost:4040/](http://localhost:4040/) to view the API documentation.
+Visit [http://localhost:4040/](http://localhost:4040/) to view the API
+documentation.
 
 ---
 
@@ -60,7 +66,8 @@ Each collection's get-method usage example:
 ### 1. Words
 
 - **Base URL**: `/words`
-- **Description**: Fetch words along with their definition and grammatical figure.
+- **Description**: Fetch words along with their definition and grammatical
+  figure.
 
 **Available Methods**
 
@@ -83,7 +90,6 @@ Each collection's get-method usage example:
     }
   ]
 }
-
 ```
 
 ---
