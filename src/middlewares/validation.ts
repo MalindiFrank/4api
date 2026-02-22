@@ -108,21 +108,19 @@ export const validateCount = async (c: Context, next: Next) => {
  * Handles Cross-Origin Resource Sharing
  */
 export const corsMiddleware = async (c: Context, next: Next) => {
-  // set CORS headers
-  c.res.headers.set("Access-Control-Allow-Origin", "*");
-  c.res.headers.set(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS",
-  );
-  c.res.headers.set(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization",
-  );
-
-  // handle preflight requests, ensures cors are handled
+  // handle preflight requests early
   if (c.req.method === "OPTIONS") {
-    return c.newResponse(null, { status: 204 });
+    const res = c.newResponse(null, { status: 204 });
+    res.headers.set("Access-Control-Allow-Origin", "*");
+    res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    return res;
   }
 
   await next();
+
+  // set CORS headers on final response (including errors from handlers)
+  c.res.headers.set("Access-Control-Allow-Origin", "*");
+  c.res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  c.res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 };
