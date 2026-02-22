@@ -73,11 +73,17 @@ Each collection's get-method usage example:
 
 ```json
 {
-  "id": 1,
-  "name": "phosphenes",
-  "figure": "n.",
-  "definition": "the colors or 'stars' you see when you rub your eyes"
+  "status": "OK",
+  "data": [
+    {
+      "id": 1,
+      "name": "phosphenes",
+      "figure": "n.",
+      "definition": "the colors or 'stars' you see when you rub your eyes"
+    }
+  ]
 }
+
 ```
 
 ---
@@ -100,11 +106,11 @@ Each collection's get-method usage example:
 {
   "status": "OK",
   "data": [
-   {
+    {
       "id": 1,
       "quote": "Dreaming, after all, is a form of planning",
       "author": "Gloria Steinem"
-   }
+    }
   ]
 }
 ```
@@ -129,11 +135,11 @@ Each collection's get-method usage example:
 {
   "status": "OK",
   "data": [
-   {
-     "id": 1,
-     "bg": "#f4f0ea",
-     "color": "#544b43"
-   }
+    {
+      "id": 1,
+      "bg": "#f4f0ea",
+      "color": "#544b43"
+    }
   ]
 }
 ```
