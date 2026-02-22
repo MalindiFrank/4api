@@ -2,21 +2,10 @@
 
 Visit [- fourapi -](https://fourapi.onrender.com) to view the API documentation.
 
-A light REST API built with Deno & Hono that serves curated collections of
-**words**, **quotes**, and **colors**. For developers building creative apps,
-learning projects, or needing quick access to inspiring content, prototypes, or
-adding some personality to your next project!
+A light REST API built with Deno & Hono that serves curated collections of `words`, `quotes`, and `colors`. For developers building creative apps, learning projects, or needing quick access to inspiring content, prototypes, or adding some personality to your next project! Simply provides endpoints for fetching `words`, `quotes`, and `color pallets`. It supports retrieving all items, random items, items by ID, and multiple random items.
 
-**Features:**
 
-- Simple, intuitive endpoints (`/words`, `/quotes`, `/colors`)
-- Random item generation for dynamic content
-- Bulk fetching with custom counts
-- Docker-ready for instant deployment
-- TypeScript + Deno for modern development
-- Interactive API documentation at root
-
-**Try it now:**
+**Quick Try - On The Terminal:**
 
 ```bash
 # Get a random inspirational quote
@@ -26,33 +15,16 @@ curl https://fourapi.onrender.com/quotes/random
 curl https://fourapi.onrender.com/colors/random/2
 ```
 
-**Quick Start:** `deno task dev` or `docker run -p 4040:4040 --rm 4-api-server`
+### Quick Start Run
 
----
+```bash
+git clone https://github.com/MalindiFrank/4api.git
+cd 4api
+deno task dev
+```
+`deno task dev` or `docker run -p 4040:4040 --rm 4-api-server`
 
-# 4-API Server
-
-## How to Run
-
-1. Install dependencies (Deno handles this automatically)
-2. Start the server:
-   ```bash
-   deno task dev
-   ```
-   OR
-   ```bash
-   deno run -A main.ts
-   ```
-
-3. Visit [http://localhost:4040/](http://localhost:4040/) to view the API
-   documentation.
-
----
-
-The **4-API Server** provides simple endpoints for fetching **words**,
-**quotes**, and **colors**.\
-It supports retrieving all items, random items, items by ID, and multiple random
-items.
+Visit [http://localhost:4040/](http://localhost:4040/) to view the API documentation.
 
 ---
 
@@ -61,10 +33,6 @@ items.
 1. Build the Docker image:
    ```bash
    docker build -t 4-api-server .
-   ```
-   OR
-   ```bash
-   docker build --no-cache -t 4-api-server .
    ```
 
 2. Run the container:
@@ -76,18 +44,9 @@ items.
 
 ---
 
-The **4-API Server** provides simple endpoints for fetching **words**,
-**quotes**, and **colors**.\
-It supports retrieving all items, random items, items by ID, and multiple random
-items.
-
----
-
 ## Endpoints
 
-**Available Methods**
-
-## Routes for each collection (quotes, colors, words)
+**Available Methods + Routes for each collection (quotes, colors, words)**
 
 Each collection's get-method usage example:
 
@@ -101,8 +60,7 @@ Each collection's get-method usage example:
 ### 1. Words
 
 - **Base URL**: `/words`
-- **Description**: Fetch words along with their definition and grammatical
-  figure.
+- **Description**: Fetch words along with their definition and grammatical figure.
 
 **Available Methods**
 
@@ -140,9 +98,14 @@ Each collection's get-method usage example:
 
 ```json
 {
-  "id": 1,
-  "quote": "Dreaming, after all, is a form of planning",
-  "author": "Gloria Steinem"
+  "status": "OK",
+  "data": [
+   {
+      "id": 1,
+      "quote": "Dreaming, after all, is a form of planning",
+      "author": "Gloria Steinem"
+   }
+  ]
 }
 ```
 
@@ -164,27 +127,16 @@ Each collection's get-method usage example:
 
 ```json
 {
-  "id": 1,
-  "bg": "#f4f0ea",
-  "color": "#544b43"
+  "status": "OK",
+  "data": [
+   {
+     "id": 1,
+     "bg": "#f4f0ea",
+     "color": "#544b43"
+   }
+  ]
 }
 ```
-
----
-
-## Usage
-
-Make HTTP requests to the provided endpoints using your preferred client (e.g.,
-`curl`, `Postman`, or in your frontend application).
-
-Example:
-
-```bash
-# Fetch a random word
-curl http://localhost:4040/words/random
-```
-
----
 
 ## Project Structure
 
@@ -210,31 +162,8 @@ curl http://localhost:4040/words/random
 
 ## Tech Stack
 
-- **Deno Runtime**
-- **Hono Framework**
-- **TypeScript**
-- **JSON-based storage**
+- `Deno Runtime` - `Hono Framework` - `TypeScript` - `JSON-based storage`
 
 ---
 
-## Quick Start
-
-Clone the repository and start the server:
-
-```bash
-git clone https://github.com/MalindiFrank/4Api.git
-cd 4api
-deno task dev
-```
-
-Server will start locally at:
-
-```
-http://localhost:4040
-```
-
----
-
-## License
-
-## This project is licensed under the **MIT License**.
+##### License - This project is licensed under the **MIT License**.
