@@ -1,5 +1,9 @@
 ## **4-API Server**
 
+**Live Sites Using This API:**  
+[- 4 Words -](https://4words.netlify.app/)  
+[- 4 Phrases -](https://4phrases.netlify.app/)
+
 Visit [- fourapi -](https://fourapi.onrender.com) to view the API documentation.
 
 A light REST API built with Deno & Hono that serves curated collections of
